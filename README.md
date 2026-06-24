@@ -44,15 +44,13 @@ entirely synthetic and contains no real patient information.
 
 
 ## SQL Query Structure
-Queries are numbered in execution order:
-1. `schema.sql` — creates tables
-2. `cancerrate_income.sql'
-3. `diagnosisage_income.sql'
-4. `careplancoverage_income.sql'
-5. `mortality_income.sql'
-6. `timetocare_income.sql'
-7. `financialburden_income.sql'
-8. 'encounterbyincome.sql'
+1. `cancerrate_income.sql`
+2. `diagnosisage_income.sql`
+3. `careplancoverage_income.sql`
+4. `mortality_income.sql`
+5. `timetocare_income.sql`
+6. `financialburden_income.sql`
+7. 'encounterclass_income.sql`
    
 ## Limitations
 - Synthea data is synthetic and may not reflect real-world clinical distributions
