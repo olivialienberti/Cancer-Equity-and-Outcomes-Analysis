@@ -36,13 +36,26 @@ Findings translated into evidence-based recommendations for improving cancer car
 | Power BI | Dashboard and visualisation |
 | SQL | Data extraction, transformation, aggregation |
 
-## Data Sources
-Synthetic patient data generated using 
-[Synthea](https://github.com/synthetichealth/synthea) — 
-an open-source synthetic patient generator. All data is 
-entirely synthetic and contains no real patient information.
+## Data
 
+Raw data files are not included in this repository due to file size 
+constraints and data governance best practices.
 
+### Reproducing the Dataset
+Patient data was generated using [Synthea](https://github.com/synthetichealth/synthea), 
+an open-source synthetic patient generator. To reproduce the dataset:
+
+1. Clone the Synthea repository
+2. Run the following command to generate 12,000 patients:
+```bash
+./gradlew run --args="-p 12000 --exporter.csv.export=true --exporter.fhir.export=false"
+```
+3. Load the generated CSVs into PostgreSQL using `sql/01_schema.sql` 
+   and `sql/02_data_import.sql`
+
+### Data Dictionary
+See `data/synthea_data_dictionary.md` for a full description of 
+all tables and columns used in this analysis.
 ## SQL Query Structure
 1. `cancerrate_income.sql`
 2. `diagnosisage_income.sql`
@@ -50,7 +63,7 @@ entirely synthetic and contains no real patient information.
 4. `mortality_income.sql`
 5. `timetocare_income.sql`
 6. `financialburden_income.sql`
-7. 'encounterclass_income.sql`
+7. `encounterclass_income.sql`
    
 ## Limitations
 - Synthea data is synthetic and may not reflect real-world clinical distributions
